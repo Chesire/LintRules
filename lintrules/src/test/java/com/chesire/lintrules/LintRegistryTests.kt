@@ -1,5 +1,3 @@
 package com.chesire.lintrules
 
-class LintRegistryTests {
-
-}
+class LintRegistryTests
