@@ -22,7 +22,7 @@ class DependencyDetector : Detector(), GradleScanner {
         val duplicateDependency = Issue.create(
             "DuplicateDependency",
             "Dependency defined multiple times",
-            "The same dependency declared multiple times could be highlighting the wrong version is being used.",
+            "The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle.",
             Category.CORRECTNESS,
             3,
             Severity.WARNING,
@@ -79,7 +79,7 @@ class DependencyDetector : Detector(), GradleScanner {
             context.report(
                 duplicateDependency,
                 context.getLocation(valueCookie),
-                duplicateDependency.getBriefDescription(TextFormat.TEXT)
+                duplicateDependency.getExplanation(TextFormat.TEXT)
             )
         }
     }
@@ -98,7 +98,7 @@ class DependencyDetector : Detector(), GradleScanner {
                 context.report(
                     lexicographicOrder,
                     context.getLocation(valueCookie),
-                    lexicographicOrder.getBriefDescription(TextFormat.TEXT)
+                    lexicographicOrder.getExplanation(TextFormat.TEXT)
                 )
             })
     }

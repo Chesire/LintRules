@@ -148,7 +148,7 @@ dependencies {
             .run()
             .expect(
                 """
-                |build.gradle:6: Warning: Dependency defined multiple times [DuplicateDependency]
+                |build.gradle:6: Warning: The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
@@ -185,7 +185,7 @@ dependencies {
             .run()
             .expect(
                 """
-                |build.gradle:6: Warning: Dependency defined multiple times [DuplicateDependency]
+                |build.gradle:6: Warning: The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.5.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
@@ -222,7 +222,7 @@ dependencies {
             .run()
             .expect(
                 """
-                |build.gradle:11: Warning: Dependency defined multiple times [DuplicateDependency]
+                |build.gradle:11: Warning: The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
@@ -371,7 +371,7 @@ dependencies {
             .run()
             .expect(
                 """
-                |build.gradle:5: Warning: Dependencies not listed in lexicographic order [LexicographicDependencies]
+                |build.gradle:5: Warning: Dependencies should be listed in lexicographic order to make it easier to find and update them. [LexicographicDependencies]
                 |    implementation 'androidx.appcompat:appcompat:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
