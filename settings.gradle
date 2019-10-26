@@ -1,2 +1,2 @@
-include ':app',
-        ':lintrules'
+include ':lintrules',
+        ':test-app'
