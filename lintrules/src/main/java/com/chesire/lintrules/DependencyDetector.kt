@@ -65,10 +65,9 @@ class DependencyDetector : Detector(), GradleScanner {
         }
     }
 
-    private fun isValidItem(value: String): Boolean {
-        // Certain items should not be included when checking
-        return !(value.contains("org.jetbrains.kotlin:kotlin-stdlib") || value.contains("fileTree"))
-    }
+    // Certain items should not be included when checking
+    private fun isValidItem(value: String) =
+        !(value.contains("org.jetbrains.kotlin:kotlin-stdlib") || value.contains("fileTree"))
 
     private fun reportIfDuplicate(
         context: GradleContext,
