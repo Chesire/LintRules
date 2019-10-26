@@ -45,15 +45,23 @@ class DependencyDetector : Detector(), GradleScanner {
     ) {
         if (parent == PARENT_TAG) {
             val dependency = value.substringBeforeLast(':')
-            if (dependencyItems.any { it.second == dependency && it.first == property }) {
-                context.report(
-                    duplicateDependency,
-                    context.getLocation(valueCookie),
-                    duplicateDependency.getBriefDescription(TextFormat.TEXT)
-                )
-            } else {
-                dependencyItems.add(property to dependency)
-            }
+            reportIfDuplicate(context, property, dependency, valueCookie)
+            dependencyItems.add(property to dependency)
+        }
+    }
+
+    private fun reportIfDuplicate(
+        context: GradleContext,
+        property: String,
+        dependency: String,
+        valueCookie: Any
+    ) {
+        if (dependencyItems.any { it.second == dependency && it.first == property }) {
+            context.report(
+                duplicateDependency,
+                context.getLocation(valueCookie),
+                duplicateDependency.getBriefDescription(TextFormat.TEXT)
+            )
         }
     }
 }
