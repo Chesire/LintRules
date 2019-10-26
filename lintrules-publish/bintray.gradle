@@ -6,6 +6,6 @@ publish {
     groupId = 'com.chesire'
     artifactId = 'lintrules'
     publishVersion = '0.0.1'
-    desc = 'Adds extra set of linting rules to a project.'
+    desc = 'Provides an extra set of lint rules to a project.'
     website = 'https://github.com/Chesire/LintRules'
 }
