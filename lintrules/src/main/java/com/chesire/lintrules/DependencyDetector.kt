@@ -1,14 +1,8 @@
 package com.chesire.lintrules
 
-import com.android.tools.lint.detector.api.Category
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.GradleContext
 import com.android.tools.lint.detector.api.GradleScanner
-import com.android.tools.lint.detector.api.Implementation
-import com.android.tools.lint.detector.api.Issue
-import com.android.tools.lint.detector.api.Scope
-import com.android.tools.lint.detector.api.Severity
-import com.android.tools.lint.detector.api.TextFormat
 import com.chesire.lintrules.issues.DuplicateDependency
 import com.chesire.lintrules.issues.LexicographicDependencies
 import org.jetbrains.kotlin.backend.common.onlyIf
