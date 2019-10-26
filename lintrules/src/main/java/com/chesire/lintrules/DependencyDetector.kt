@@ -9,6 +9,8 @@ import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
 import com.android.tools.lint.detector.api.TextFormat
+import com.chesire.lintrules.issues.DuplicateDependency
+import com.chesire.lintrules.issues.LexicographicDependencies
 import org.jetbrains.kotlin.backend.common.onlyIf
 
 /**
@@ -16,32 +18,6 @@ import org.jetbrains.kotlin.backend.common.onlyIf
  */
 class DependencyDetector : Detector(), GradleScanner {
     companion object {
-        /**
-         * Issue for when duplicate dependencies are added to Gradle.
-         */
-        val duplicateDependency = Issue.create(
-            "DuplicateDependency",
-            "Dependency defined multiple times",
-            "The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle.",
-            Category.CORRECTNESS,
-            3,
-            Severity.WARNING,
-            Implementation(DependencyDetector::class.java, Scope.GRADLE_SCOPE)
-        )
-
-        /**
-         * Issue for when the dependencies are not listed in lexicographic order.
-         */
-        val lexicographicOrder = Issue.create(
-            "LexicographicDependencies",
-            "Dependencies not listed in lexicographic order",
-            "Dependencies should be listed in lexicographic order to make it easier to find and update them.",
-            Category.CORRECTNESS,
-            1,
-            Severity.WARNING,
-            Implementation(DependencyDetector::class.java, Scope.GRADLE_SCOPE)
-        )
-
         private const val PARENT_TAG = "dependencies"
     }
 
@@ -77,9 +53,9 @@ class DependencyDetector : Detector(), GradleScanner {
     ) {
         if (dependencyItems.any { it.second == dependency && it.first == property }) {
             context.report(
-                duplicateDependency,
+                DuplicateDependency.issue,
                 context.getLocation(valueCookie),
-                duplicateDependency.getExplanation(TextFormat.TEXT)
+                DuplicateDependency.message
             )
         }
     }
@@ -96,9 +72,9 @@ class DependencyDetector : Detector(), GradleScanner {
                 first == property && second.compareTo(dependency, false) > 0
             }, {
                 context.report(
-                    lexicographicOrder,
+                    LexicographicDependencies.issue,
                     context.getLocation(valueCookie),
-                    lexicographicOrder.getExplanation(TextFormat.TEXT)
+                    LexicographicDependencies.message
                 )
             })
     }

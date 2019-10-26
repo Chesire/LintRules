@@ -1,6 +1,8 @@
 package com.chesire.lintrules
 
 import com.android.tools.lint.detector.api.CURRENT_API
+import com.chesire.lintrules.issues.DuplicateDependency
+import com.chesire.lintrules.issues.LexicographicDependencies
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -9,8 +11,8 @@ class LintRegistryTests {
     @Test
     fun `issues returns expected list`() {
         val registry = LintRegistry()
-        assertTrue(registry.issues.contains(DependencyDetector.duplicateDependency))
-        assertTrue(registry.issues.contains(DependencyDetector.lexicographicOrder))
+        assertTrue(registry.issues.contains(DuplicateDependency.issue))
+        assertTrue(registry.issues.contains(LexicographicDependencies.issue))
     }
 
     @Test

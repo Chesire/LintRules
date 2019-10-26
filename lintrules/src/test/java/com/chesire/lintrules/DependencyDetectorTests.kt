@@ -2,6 +2,8 @@ package com.chesire.lintrules
 
 import com.android.tools.lint.checks.infrastructure.TestFiles
 import com.android.tools.lint.checks.infrastructure.TestLintTask
+import com.chesire.lintrules.issues.DuplicateDependency
+import com.chesire.lintrules.issues.LexicographicDependencies
 import org.junit.Test
 
 class DependencyDetectorTests {
@@ -52,7 +54,7 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.duplicateDependency)
+            .issues(DuplicateDependency.issue)
             .run()
             .expectClean()
     }
@@ -82,7 +84,7 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.duplicateDependency)
+            .issues(DuplicateDependency.issue)
             .run()
             .expectClean()
     }
@@ -113,7 +115,7 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.duplicateDependency)
+            .issues(DuplicateDependency.issue)
             .run()
             .expectClean()
     }
@@ -144,11 +146,11 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.duplicateDependency)
+            .issues(DuplicateDependency.issue)
             .run()
             .expect(
                 """
-                |build.gradle:6: Warning: The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle. [DuplicateDependency]
+                |build.gradle:6: Warning: Dependencies should only be added to a given module once. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
@@ -181,11 +183,11 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.duplicateDependency)
+            .issues(DuplicateDependency.issue)
             .run()
             .expect(
                 """
-                |build.gradle:6: Warning: The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle. [DuplicateDependency]
+                |build.gradle:6: Warning: Dependencies should only be added to a given module once. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.5.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
@@ -218,11 +220,11 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.duplicateDependency)
+            .issues(DuplicateDependency.issue)
             .run()
             .expect(
                 """
-                |build.gradle:11: Warning: The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle. [DuplicateDependency]
+                |build.gradle:11: Warning: Dependencies should only be added to a given module once. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
@@ -276,7 +278,7 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.lexicographicOrder)
+            .issues(LexicographicDependencies.issue)
             .run()
             .expectClean()
     }
@@ -306,7 +308,7 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.lexicographicOrder)
+            .issues(LexicographicDependencies.issue)
             .run()
             .expectClean()
     }
@@ -337,7 +339,7 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.lexicographicOrder)
+            .issues(LexicographicDependencies.issue)
             .run()
             .expectClean()
     }
@@ -367,11 +369,11 @@ dependencies {
                 """.trimIndent()
                 ).indented()
             )
-            .issues(DependencyDetector.lexicographicOrder)
+            .issues(LexicographicDependencies.issue)
             .run()
             .expect(
                 """
-                |build.gradle:5: Warning: Dependencies should be listed in lexicographic order to make it easier to find and update them. [LexicographicDependencies]
+                |build.gradle:5: Warning: Dependencies should be listed in lexicographic order. [LexicographicDependencies]
                 |    implementation 'androidx.appcompat:appcompat:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
