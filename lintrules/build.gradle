@@ -11,6 +11,8 @@ dependencies {
     testImplementation 'com.android.tools.lint:lint-tests:26.5.1'
 }
 
-manifest {
-    attributes('Lint-Registry-v2': 'com.chesire.lintrules.LintRegistry')
+jar {
+    manifest {
+        attributes('Lint-Registry-v2': 'com.chesire.lintrules.LintRegistry')
+    }
 }
