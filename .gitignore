@@ -224,5 +224,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.idea/caches/
+.idea/sonarlint/
 
 # End of https://www.gitignore.io/api/macos,kotlin,windows,android,androidstudio
