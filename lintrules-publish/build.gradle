@@ -1,11 +1,9 @@
 apply plugin: 'com.android.library'
+apply from: 'bintray.gradle'
 
 android {
     compileSdkVersion 29
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 29
-    }
+    defaultConfig.minSdkVersion 14
 }
 
 dependencies {
