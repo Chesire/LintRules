@@ -1,4 +1,3 @@
-include ':lintrules',
-        ':lintrules-gradle',
+include ':lintrules-gradle',
         ':lintrules-gradle-publish',
         ':test-app'
