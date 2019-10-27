@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chesire.lintrules">
+    package="com.chesire.lintrules.testapp">
 
     <application
         android:allowBackup="true"

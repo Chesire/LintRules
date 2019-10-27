@@ -1,2 +1,3 @@
-include ':app',
-        ':lintrules'
+include ':lintrules',
+        ':lintrules-publish',
+        ':test-app'
