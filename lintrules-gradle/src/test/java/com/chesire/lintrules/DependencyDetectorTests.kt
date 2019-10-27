@@ -2,8 +2,8 @@ package com.chesire.lintrules
 
 import com.android.tools.lint.checks.infrastructure.TestFiles
 import com.android.tools.lint.checks.infrastructure.TestLintTask
-import com.chesire.lintrules.issues.DuplicateDependency
-import com.chesire.lintrules.issues.LexicographicDependencies
+import com.chesire.lintrules.gradle.issues.DuplicateDependency
+import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 import org.junit.Test
 
 class DependencyDetectorTests {

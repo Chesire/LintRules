@@ -1,10 +1,10 @@
-package com.chesire.lintrules
+package com.chesire.lintrules.gradle
 
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.GradleContext
 import com.android.tools.lint.detector.api.GradleScanner
-import com.chesire.lintrules.issues.DuplicateDependency
-import com.chesire.lintrules.issues.LexicographicDependencies
+import com.chesire.lintrules.gradle.issues.DuplicateDependency
+import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 import org.jetbrains.kotlin.backend.common.onlyIf
 
 /**

@@ -1,11 +1,12 @@
-package com.chesire.lintrules.issues
+package com.chesire.lintrules.gradle.issues
 
 import com.android.tools.lint.detector.api.Category
 import com.android.tools.lint.detector.api.Implementation
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
-import com.chesire.lintrules.DependencyDetector
+import com.chesire.lintrules.IssueHolder
+import com.chesire.lintrules.gradle.DependencyDetector
 
 /**
  * Issue for when the dependencies are not listed in lexicographic order.

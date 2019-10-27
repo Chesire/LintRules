@@ -1,8 +1,9 @@
 package com.chesire.lintrules
 
 import com.android.tools.lint.detector.api.CURRENT_API
-import com.chesire.lintrules.issues.DuplicateDependency
-import com.chesire.lintrules.issues.LexicographicDependencies
+import com.chesire.lintrules.gradle.LintRegistry
+import com.chesire.lintrules.gradle.issues.DuplicateDependency
+import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
