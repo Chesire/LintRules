@@ -9,7 +9,7 @@ import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 /**
  * Custom registry to add custom issues.
  */
-class LintRegistry : IssueRegistry() {
+class GradleLintRegistry : IssueRegistry() {
     override val issues: List<Issue>
         get() = listOf(
             DuplicateDependency.issue,
