@@ -5,7 +5,7 @@ publish {
     repoName = 'LintRules'
     groupId = 'com.chesire'
     artifactId = 'lint-gradle'
-    publishVersion = '0.0.1'
+    publishVersion = '0.0.0'
     desc = 'Provides extra lint rules based around Gradle to the project.'
     website = 'https://github.com/Chesire/LintRules'
 }
