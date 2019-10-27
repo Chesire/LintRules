@@ -1,0 +1,11 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'chesire'
+    repoName = 'LintRules'
+    groupId = 'com.chesire'
+    artifactId = 'lint-gradle'
+    publishVersion = '0.0.1'
+    desc = 'Provides extra lint rules based around Gradle to the project.'
+    website = 'https://github.com/Chesire/LintRules'
+}
