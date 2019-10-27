@@ -17,7 +17,10 @@ object DuplicateDependency {
     val issue = Issue.create(
         "DuplicateDependency",
         "Dependency defined multiple times",
-        "The same dependency declared multiple times can make it confusing to know which one is the one being used by Gradle.",
+        """
+            The same dependency declared multiple times can make it confusing to know which one is 
+            the one being used by Gradle.
+        """.trimIndent(),
         Category.CORRECTNESS,
         3,
         Severity.WARNING,

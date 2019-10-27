@@ -35,17 +35,17 @@ task clean(type: Delete) {
 detekt {
     toolVersion = "1.1.1"
     config = files("detekt.yml")
-    input = files("lintrules/src/main/java")
+    input = files("lintrules-gradle/src/main/java")
     filters = ".*/resources/.*,.*/build/.*"
 
     reports {
         xml {
             enabled = true
-            destination = file("lintrules/build/reports/detekt/detekt.xml")
+            destination = file("build/reports/detekt/detekt.xml")
         }
         html {
             enabled = true
-            destination = file("lintrules/build/reports/detekt/detekt.html")
+            destination = file("build/reports/detekt/detekt.html")
         }
     }
 }
