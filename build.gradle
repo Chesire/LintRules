@@ -50,3 +50,7 @@ detekt {
         }
     }
 }
+
+ext {
+    lintVersion = "26.5.2"
+}
