@@ -4,7 +4,7 @@ apply plugin: 'kotlin'
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    compileOnly 'com.android.tools.lint:lint-api:26.5.1'
+    compileOnly 'com.android.tools.lint:lint-api:26.5.2'
     compileOnly 'com.android.tools.lint:lint-checks:26.5.2'
 
     testImplementation 'com.android.tools.lint:lint:26.5.1'
