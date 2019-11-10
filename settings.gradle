@@ -1,3 +1,4 @@
 include ':lintrules-gradle',
         ':lintrules-xml',
-        ':lintrules-gradle-publish' //, ':test-app'
+        ':lintrules-gradle-publish',
+        ':lintrules-xml-publish' //, ':test-app'
