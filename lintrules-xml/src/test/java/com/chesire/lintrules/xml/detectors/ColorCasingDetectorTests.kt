@@ -126,7 +126,7 @@ res/values/colors.xml:8: Warning: Color definitions should be all uppercase. [Co
                 """
 res/layout/layout.xml:6: Warning: Color definitions should be all uppercase. [ColorCasing]
     android:background="#ff2a0b">
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        ~~~~~~~
 0 errors, 1 warnings
                 """.trimIndent()
             )
@@ -184,7 +184,7 @@ res/values/colors.xml:8: Warning: Color definitions should be all uppercase. [Co
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 res/layout/layout.xml:6: Warning: Color definitions should be all uppercase. [ColorCasing]
     android:background="#ff2a0b">
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        ~~~~~~~
 0 errors, 4 warnings
                 """.trimIndent()
             )
