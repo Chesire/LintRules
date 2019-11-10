@@ -1,4 +1,4 @@
-package com.chesire.lintrules.xml
+package com.chesire.lintrules.xml.detectors
 
 import com.android.tools.lint.checks.infrastructure.LintDetectorTest.xml
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint

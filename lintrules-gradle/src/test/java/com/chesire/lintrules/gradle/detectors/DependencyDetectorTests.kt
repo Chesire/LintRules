@@ -1,4 +1,4 @@
-package com.chesire.lintrules.gradle
+package com.chesire.lintrules.gradle.detectors
 
 import com.android.tools.lint.checks.infrastructure.TestFiles
 import com.android.tools.lint.checks.infrastructure.TestLintTask

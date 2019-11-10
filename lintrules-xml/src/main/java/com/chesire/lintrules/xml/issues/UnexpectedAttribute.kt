@@ -5,7 +5,7 @@ import com.android.tools.lint.detector.api.Implementation
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
-import com.chesire.lintrules.xml.UnexpectedAttributeDetector
+import com.chesire.lintrules.xml.detectors.UnexpectedAttributeDetector
 
 /**
  * Issue for when a layout item contains an expected attribute.
