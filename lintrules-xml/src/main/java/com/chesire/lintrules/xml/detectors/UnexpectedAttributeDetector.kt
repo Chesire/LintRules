@@ -3,6 +3,7 @@ package com.chesire.lintrules.xml.detectors
 import com.android.SdkConstants.ANDROID_URI
 import com.android.SdkConstants.ATTR_ORIENTATION
 import com.android.SdkConstants.CONSTRAINT_LAYOUT
+import com.android.resources.ResourceFolderType
 import com.android.tools.lint.detector.api.LayoutDetector
 import com.android.tools.lint.detector.api.XmlContext
 import com.chesire.lintrules.xml.issues.UnexpectedAttribute
@@ -13,6 +14,8 @@ import org.w3c.dom.Node
  * Detector to find issue types of [UnexpectedAttribute].
  */
 class UnexpectedAttributeDetector : LayoutDetector() {
+    override fun appliesTo(folderType: ResourceFolderType) = folderType == ResourceFolderType.LAYOUT
+
     override fun getApplicableElements() = listOf(CONSTRAINT_LAYOUT.newName())
 
     override fun visitElement(context: XmlContext, element: Element) {
