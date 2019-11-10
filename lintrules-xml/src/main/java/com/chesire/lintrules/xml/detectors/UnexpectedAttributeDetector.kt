@@ -1,4 +1,4 @@
-package com.chesire.lintrules.xml
+package com.chesire.lintrules.xml.detectors
 
 import com.android.SdkConstants.ANDROID_URI
 import com.android.SdkConstants.ATTR_ORIENTATION
