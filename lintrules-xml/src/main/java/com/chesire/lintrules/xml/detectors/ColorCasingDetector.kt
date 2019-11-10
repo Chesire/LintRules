@@ -5,6 +5,7 @@ import com.android.tools.lint.detector.api.ResourceXmlDetector
 import com.android.tools.lint.detector.api.XmlContext
 import com.android.utils.forEach
 import com.chesire.lintrules.xml.issues.ColorCasing
+import org.w3c.dom.Attr
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
@@ -24,7 +25,7 @@ class ColorCasingDetector : ResourceXmlDetector() {
         } else {
             element.attributes.forEach { node ->
                 if (shouldReportOn(node.nodeValue)) {
-                    ColorCasing.report(context, node)
+                    ColorCasing.report(context, node as Attr)
                 }
             }
         }
@@ -35,4 +36,7 @@ class ColorCasingDetector : ResourceXmlDetector() {
 
     private fun ColorCasing.report(context: XmlContext, node: Node) =
         context.report(issue, context.getLocation(node), message)
+
+    private fun ColorCasing.report(context: XmlContext, attr: Attr) =
+        context.report(issue, context.getValueLocation(attr), message)
 }
