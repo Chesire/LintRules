@@ -1,0 +1,11 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'chesire'
+    repoName = 'LintRules'
+    groupId = 'com.chesire.lintrules'
+    artifactId = 'lint-xml'
+    publishVersion = '0.0.0'
+    desc = 'Provides extra lint rules based around XML files to the project.'
+    website = 'https://github.com/Chesire/LintRules'
+}
