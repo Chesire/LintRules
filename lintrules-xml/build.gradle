@@ -13,6 +13,6 @@ dependencies {
 
 jar {
     manifest {
-        attributes('Lint-Registry-v2': 'com.chesire.lintrules.gradle.XmlLintRegistry')
+        attributes('Lint-Registry-v2': 'com.chesire.lintrules.xml.XmlLintRegistry')
     }
 }
