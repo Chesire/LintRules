@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## Version 1.1.2
+_19-11-14_
+
+* fix: lexicographic ordering doesn't properly check for :
+  * For users who have muliple repositories then the Lexicographic ordering gets confused, as it will see that `:` is higher than `.`, so it would allow items such as `com.chesire:lifecyklelog` to come after `com.chesire.lintrules:lint-gradle`. Made it replace instances of `:` with a `.` and then do a straight compare, which should produce a valid result.
+
 ## Version 1.1.1
 _19-11-12_
 
