@@ -63,7 +63,14 @@ class DependencyDetector : Detector(), GradleScanner {
         dependencyItems
             .lastOrNull()
             ?.onlyIf({
-                first == property && second.compareTo(dependency, false) > 0
+                if (first != property) {
+                    return@onlyIf false
+                }
+
+                val firstString = dependency.replace(':', '.')
+                val seconString = second.replace(':', '.')
+
+                seconString.compareTo(firstString, false) > 0
             }, {
                 context.report(
                     LexicographicDependencies.issue,
