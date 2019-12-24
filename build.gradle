@@ -40,8 +40,6 @@ detekt {
             "lintrules-gradle/src/main/java",
             "lintrules-xml/src/main/java"
     )
-    filters = ".*/resources/.*,.*/build/.*"
-
     reports {
         xml {
             enabled = true
