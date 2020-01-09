@@ -5,7 +5,7 @@ import com.android.tools.lint.checks.infrastructure.TestLintTask
 import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 import org.junit.Test
 
-class DependencyDetectorTests {
+class LexicographicDependenciesDetectorTests {
     @Test
     fun `lexicographicOrder should be no issue with valid Gradle file`() {
         TestLintTask

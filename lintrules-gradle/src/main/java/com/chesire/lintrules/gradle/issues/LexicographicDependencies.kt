@@ -5,7 +5,7 @@ import com.android.tools.lint.detector.api.Implementation
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
-import com.chesire.lintrules.gradle.detectors.DependencyDetector
+import com.chesire.lintrules.gradle.detectors.LexicographicDependenciesDetector
 
 /**
  * Issue for when the dependencies are not listed in lexicographic order.
@@ -21,7 +21,7 @@ object LexicographicDependencies {
         Category.CORRECTNESS,
         1,
         Severity.WARNING,
-        Implementation(DependencyDetector::class.java, Scope.GRADLE_SCOPE)
+        Implementation(LexicographicDependenciesDetector::class.java, Scope.GRADLE_SCOPE)
     )
 
     /**
