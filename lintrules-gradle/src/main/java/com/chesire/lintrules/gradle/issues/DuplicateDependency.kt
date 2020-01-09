@@ -5,7 +5,7 @@ import com.android.tools.lint.detector.api.Implementation
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
-import com.chesire.lintrules.gradle.detectors.DependencyDetector
+import com.chesire.lintrules.gradle.detectors.DuplicateDependencyDetector
 
 /**
  * Issue for when duplicate dependencies are added to Gradle.
@@ -24,7 +24,7 @@ object DuplicateDependency {
         Category.CORRECTNESS,
         3,
         Severity.WARNING,
-        Implementation(DependencyDetector::class.java, Scope.GRADLE_SCOPE)
+        Implementation(DuplicateDependencyDetector::class.java, Scope.GRADLE_SCOPE)
     )
 
     /**
