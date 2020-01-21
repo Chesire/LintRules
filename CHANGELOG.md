@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## Version 1.1.3
+_20-12-21_
+
+* fix: false duplicate issue on project dependencies
+  * When having dependencies that were `implementation project(path: ':core')` then the duplicate dependency check would flag up every project as a duplicate.
+
 ## Version 1.1.2
 _19-11-14_
 
