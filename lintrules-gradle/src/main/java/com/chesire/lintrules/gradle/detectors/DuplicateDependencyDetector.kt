@@ -3,6 +3,8 @@ package com.chesire.lintrules.gradle.detectors
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.GradleContext
 import com.android.tools.lint.detector.api.GradleScanner
+import com.chesire.lintrules.gradle.Dependency
+import com.chesire.lintrules.gradle.DependencyParser
 import com.chesire.lintrules.gradle.issues.DuplicateDependency
 
 /**
@@ -28,33 +30,18 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
         if (parent != PARENT_TAG) {
             return
         }
-        parseDependency(value)?.let { dependency ->
-            reportIfDuplicate(context, property, dependency, valueCookie)
-            dependencyItems.add(property to dependency)
+        DependencyParser.parseDependency(property, value)?.let { dependency ->
+            reportIfDuplicate(context, dependency, valueCookie)
+            dependencyItems.add(dependency.type to dependency.name)
         }
-    }
-
-    private fun parseDependency(value: String): String? {
-        val encasingCharacter = when {
-            value.contains("\"") -> "\""
-            value.contains("\'") -> "\'"
-            else -> return null
-        }
-
-        // could expand to trim form the last index of `:`, and if it is then empty, ignore that trim
-        return value.substring(
-            value.indexOf(encasingCharacter),
-            value.lastIndexOf(encasingCharacter)
-        )
     }
 
     private fun reportIfDuplicate(
         context: GradleContext,
-        property: String,
-        dependency: String,
+        dependency: Dependency,
         valueCookie: Any
     ) {
-        if (dependencyItems.any { it.second == dependency && it.first == property }) {
+        if (dependencyItems.any { it.first == dependency.type && it.second == dependency.name }) {
             context.report(
                 DuplicateDependency.issue,
                 context.getLocation(valueCookie),
