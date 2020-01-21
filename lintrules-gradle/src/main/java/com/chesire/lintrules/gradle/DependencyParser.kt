@@ -6,7 +6,7 @@ package com.chesire.lintrules.gradle
 object DependencyParser {
     /**
      * Parses [value] into a [Dependency] object, takes the compile type [type] to aid with
-     * creation of the object,
+     * creation of the object.
      */
     fun parseDependency(type: String, value: String): Dependency? {
         val encasingChar = getEncasingChar(value) ?: return null
