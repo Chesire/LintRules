@@ -3,6 +3,8 @@ package com.chesire.lintrules.gradle.detectors
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.GradleContext
 import com.android.tools.lint.detector.api.GradleScanner
+import com.chesire.lintrules.gradle.Dependency
+import com.chesire.lintrules.gradle.DependencyParser
 import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 import org.jetbrains.kotlin.backend.common.onlyIf
 
@@ -26,10 +28,12 @@ class LexicographicDependenciesDetector : Detector(), GradleScanner {
         valueCookie: Any,
         statementCookie: Any
     ) {
-        if (parent == PARENT_TAG && isValidItem(value)) {
-            val dependency = value.substringBeforeLast(':').trim('"')
-            reportIfNotLexicographicOrder(context, property, dependency, valueCookie)
-            dependencyItems.add(property to dependency)
+        if (parent != PARENT_TAG || !isValidItem(value)) {
+            return
+        }
+        DependencyParser.parseDependency(property, value)?.let { dependency ->
+            reportIfNotLexicographicOrder(context, dependency, valueCookie)
+            dependencyItems.add(property to dependency.name)
         }
     }
 
@@ -39,18 +43,17 @@ class LexicographicDependenciesDetector : Detector(), GradleScanner {
 
     private fun reportIfNotLexicographicOrder(
         context: GradleContext,
-        property: String,
-        dependency: String,
+        dependency: Dependency,
         valueCookie: Any
     ) {
         dependencyItems
             .lastOrNull()
             ?.onlyIf({
-                if (first != property) {
+                if (first != dependency.type) {
                     return@onlyIf false
                 }
 
-                val firstString = dependency.replace(':', '.')
+                val firstString = dependency.name.replace(':', '.')
                 val seconString = second.replace(':', '.')
 
                 seconString.compareTo(firstString, false) > 0
