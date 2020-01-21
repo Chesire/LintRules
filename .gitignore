@@ -228,3 +228,5 @@ $RECYCLE.BIN/
 .idea/sonarlint/
 
 # End of https://www.gitignore.io/api/macos,kotlin,windows,android,androidstudio
+
+node_modules/
