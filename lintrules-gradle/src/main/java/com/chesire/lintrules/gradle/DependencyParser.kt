@@ -11,10 +11,10 @@ object DependencyParser {
     fun parseDependency(type: String, value: String): Dependency? {
         val encasingChar = getEncasingChar(value) ?: return null
         val dependencyItem = value.substring(
-            value.indexOf(encasingChar),
+            value.indexOf(encasingChar) + 1,
             value.lastIndexOf(encasingChar)
         )
-        val dependencyName = dependencyItem.substring(0, dependencyItem.lastIndexOf(':'))
+        val dependencyName = getDependencyName(dependencyItem)
         val dependencyVersion = dependencyItem.substring(dependencyItem.lastIndexOf(':') + 1)
 
         return Dependency(type, dependencyName, dependencyVersion)
@@ -25,4 +25,10 @@ object DependencyParser {
         value.contains("\'") -> '\''
         else -> null
     }
+
+    private fun getDependencyName(value: String) =
+        value
+            .substring(0, value.lastIndexOf(':'))
+            .takeIf { it.isNotEmpty() }
+            ?: value
 }
