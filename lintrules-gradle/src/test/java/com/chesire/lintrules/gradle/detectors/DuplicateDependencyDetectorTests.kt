@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
@@ -226,6 +227,85 @@ dependencies {
                 |build.gradle:11: Warning: Dependencies should only be added to a given module once. [DuplicateDependency]
                 |    implementation 'androidx.core:core-ktx:1.1.0'
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                |0 errors, 1 warnings""".trimMargin()
+            )
+    }
+
+    @Test
+    fun `duplicateDependency should not be an issue with multiple different items`() {
+        TestLintTask
+            .lint()
+            .allowMissingSdk()
+            .files(
+                TestFiles.gradle(
+                    """
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+    implementation project(path: ':core')
+    implementation project(path: ':database')
+    implementation project(path: ':server')
+        
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    
+    testImplementation project(path: ':testutils')
+    testImplementation 'com.android.tools.lint:lint-tests:26.5.1'
+    testImplementation "junit:junit:4.12"
+    
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    
+    lintChecks project(":lintrules")
+}
+                """.trimIndent()
+                ).indented()
+            )
+            .issues(DuplicateDependency.issue)
+            .run()
+            .expectClean()
+    }
+
+    @Test
+    fun `duplicateDependency should be an issue with duplicate project`() {
+        TestLintTask
+            .lint()
+            .allowMissingSdk()
+            .files(
+                TestFiles.gradle(
+                    """
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+    implementation project(path: ':core')
+    implementation project(path: ':database')
+    implementation project(path: ':server')
+    implementation project(path: ':server')
+        
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    
+    testImplementation project(path: ':testutils')
+    testImplementation 'com.android.tools.lint:lint-tests:26.5.1'
+    testImplementation "junit:junit:4.12"
+    
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    
+    lintChecks project(":lintrules")
+}
+                """.trimIndent()
+                ).indented()
+            )
+            .issues(DuplicateDependency.issue)
+            .run()
+            .expect(
+                """
+                |build.gradle:7: Warning: Dependencies should only be added to a given module once. [DuplicateDependency]
+                |    implementation project(path: ':server')
+                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings""".trimMargin()
             )
     }
