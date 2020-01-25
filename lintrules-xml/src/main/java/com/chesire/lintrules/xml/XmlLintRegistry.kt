@@ -16,6 +16,5 @@ class XmlLintRegistry : IssueRegistry() {
             UnexpectedAttribute.issue
         )
 
-    override val api: Int
-        get() = CURRENT_API
+    override val api = CURRENT_API
 }
