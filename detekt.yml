@@ -10,6 +10,8 @@ console-reports:
 comments:
   active: true
   excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
+  AbsentOrWrongFileLicense:
+    active: false
   CommentOverPrivateFunction:
     active: true
   CommentOverPrivateProperty:
@@ -51,7 +53,8 @@ complexity:
     threshold: 30
   LongParameterList:
     active: true
-    threshold: 6
+    constructorThreshold: 6
+    functionThreshold: 6
     ignoreDefaultParameters: false
   MethodOverloading:
     active: false
@@ -77,6 +80,13 @@ complexity:
     ignoreDeprecated: false
     ignorePrivate: false
     ignoreOverridden: false
+
+coroutines:
+  active: true
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true
 
 empty-blocks:
   active: true
@@ -105,6 +115,8 @@ empty-blocks:
   EmptyKtFile:
     active: true
   EmptySecondaryConstructor:
+    active: true
+  EmptyTryBlock:
     active: true
   EmptyWhenBlock:
     active: true
@@ -390,6 +402,8 @@ style:
   EqualsNullCall:
     active: true
   EqualsOnSignatureLine:
+    active: true
+  ExplicitCollectionElementAccessMethod:
     active: true
   ExplicitItLambdaParameter:
     active: true
