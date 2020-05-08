@@ -43,7 +43,7 @@ jar {
     }
 
     @Test
-    fun `multipleSpace should flag issues`() {
+    fun `multipleSpace should flag issues in invalid Gradle file`() {
         TestLintTask
             .lint()
             .allowMissingSdk()
