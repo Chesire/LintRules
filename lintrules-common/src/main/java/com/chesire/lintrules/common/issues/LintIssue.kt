@@ -4,6 +4,9 @@ import com.android.tools.lint.detector.api.Category
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Severity
 
+/**
+ * Base interface for other issues to implement.
+ */
 interface LintIssue {
     /**
      * The id of the issue, see [Issue.create].
