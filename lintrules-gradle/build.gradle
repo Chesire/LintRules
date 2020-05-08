@@ -1,9 +1,18 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
-dependencies {
-    implementation project(path: ":lintrules-common")
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    'src/main/java',
+                    '../lintrules-common/src/main/java'
+            ]
+        }
+    }
+}
 
+dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     compileOnly "com.android.tools.lint:lint-api:$lintVersion"
