@@ -7,7 +7,7 @@ import com.android.tools.lint.detector.api.Location
 import com.chesire.lintrules.gradle.issues.MultipleSpace
 
 class MultipleSpaceDetector : Detector(), GradleScanner {
-    private val spaceRegex = Regex("\\w[ ]{2,}")
+    private val spaceRegex = Regex("[^\\s][ ]{2,}")
 
     override val customVisitor = true
 
