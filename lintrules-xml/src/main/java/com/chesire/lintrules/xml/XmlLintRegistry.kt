@@ -4,6 +4,7 @@ import com.android.tools.lint.client.api.IssueRegistry
 import com.android.tools.lint.detector.api.CURRENT_API
 import com.android.tools.lint.detector.api.Issue
 import com.chesire.lintrules.xml.issues.ColorCasing
+import com.chesire.lintrules.xml.issues.MultipleSpace
 import com.chesire.lintrules.xml.issues.UnexpectedAttribute
 
 /**
@@ -13,6 +14,7 @@ class XmlLintRegistry : IssueRegistry() {
     override val issues: List<Issue>
         get() = listOf(
             ColorCasing.issue,
+            MultipleSpace.issue,
             UnexpectedAttribute.issue
         )
 

@@ -1,6 +1,17 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    'src/main/java',
+                    '../lintrules-common/src/main/java'
+            ]
+        }
+    }
+}
+
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
