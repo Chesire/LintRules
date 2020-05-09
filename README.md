@@ -16,7 +16,7 @@ implementation 'com.chesire.lintrules:lint-gradle:{version}'
 implementation 'com.chesire.lintrules:lint-xml:{version}'
 ```
 
-the project is also available via jitpack
+the project is also available via JitPack
 
 ```gradle
 implementation 'com.github.Chesire:LintRules:{version}'
@@ -25,11 +25,13 @@ implementation 'com.github.Chesire:LintRules:{version}'
 ## Rules Added
 
 ### lint-gradle
-- **[DuplicateDependency]** - Highlights when the same dependency has been used multiple times within the same Gradle file.  
+- **[DuplicateDependency]** - Highlights when the same dependency has been used multiple times within the same Gradle file. 
+- **[MultipleSpaces]** - Highlights when multiple spaces are detected in a row. 
 - **[LexicographicDependencies]** - Highlights when dependencies within a Gradle file are not ordered lexicographically.
 
 ### lint-xml
 - **[ColorCasing]** - Highlights when a color has been defined, but is not all uppercased. 
+- **[MultipleSpaces]** - Highlights when multiple spaces are detected in a row. 
 - **[UnexpectedAttribute]** - Highlights when an attribute has been used in a layout file, but it is not expected on that element.
 
 ## License
