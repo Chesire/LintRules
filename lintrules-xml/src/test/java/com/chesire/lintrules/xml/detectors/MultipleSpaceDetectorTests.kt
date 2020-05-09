@@ -46,7 +46,7 @@ class MultipleSpaceDetectorTests {
     }
 
     @Test
-    fun `multipleSpace should flag issues in valid XML file`() {
+    fun `multipleSpace should flag issues in invalid XML file`() {
         lint()
             .allowMissingSdk()
             .files(

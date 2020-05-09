@@ -30,7 +30,7 @@ abstract class BaseMultipleSpaceDetector : Detector(), GradleScanner, XmlScanner
 
     private fun findIssues(contents: CharSequence, onIssueFound: (IntRange) -> Unit) {
         spaceRegex.findAll(contents).forEach {
-            onIssueFound(it.range)
+            onIssueFound(IntRange(it.range.first.inc(), it.range.last.inc()))
         }
     }
 

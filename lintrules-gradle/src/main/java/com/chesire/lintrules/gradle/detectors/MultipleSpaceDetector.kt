@@ -15,8 +15,8 @@ class MultipleSpaceDetector : BaseMultipleSpaceDetector() {
             Location.create(
                 file,
                 contents,
-                offset.first + 1,
-                offset.last + 1
+                offset.first,
+                offset.last
             ),
             MultipleSpace.message,
             null
