@@ -77,19 +77,19 @@ jar {
             .run()
             .expect(
                 """
-                |build.gradle:1: Information: Multiple spaces should not be used. [MultipleSpace]
+                |build.gradle:1: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |apply  plugin: 'java-library'
                 |     ~~
-                |build.gradle:5: Information: Multiple spaces should not be used. [MultipleSpace]
+                |build.gradle:5: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |    implementation project(path:  ":lintrules-common")
                 |                                ~~
-                |build.gradle:9: Information: Multiple spaces should not be used. [MultipleSpace]
+                |build.gradle:9: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |    compileOnly  "com.android.tools.lint:lint-api:0.0.0"
                 |               ~~
-                |build.gradle:17: Information: Multiple spaces should not be used. [MultipleSpace]
+                |build.gradle:17: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |    manifest  {
                 |            ~~
-                |0 errors, 0 warnings""".trimMargin()
+                |0 errors, 4 warnings""".trimMargin()
             )
     }
 }

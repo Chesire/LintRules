@@ -46,7 +46,7 @@ class MultipleSpaceDetectorTests {
     }
 
     @Test
-    fun `multipleSpace should flag issues in valid xml file`() {
+    fun `multipleSpace should flag issues in valid XML file`() {
         lint()
             .allowMissingSdk()
             .files(
@@ -83,16 +83,16 @@ class MultipleSpaceDetectorTests {
             .run()
             .expect(
                 """
-                |res/layout/layout_file.xml:1: Information: Multiple spaces should not be used. [MultipleSpace]
+                |res/layout/layout_file.xml:1: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |<?xml version="1.0"  encoding="utf-8"?>
                 |                   ~~
-                |res/layout/layout_file.xml:2: Information: Multiple spaces should not be used. [MultipleSpace]
+                |res/layout/layout_file.xml:2: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
                 |           ~~
-                |res/layout/layout_file.xml:21: Information: Multiple spaces should not be used. [MultipleSpace]
+                |res/layout/layout_file.xml:21: Warning: Multiple spaces should not be used. [MultipleSpace]
                 |            app:layout_constraintTop_toTopOf="parent"  />
                 |                                                     ~~
-0 errors, 0 warnings""".trimMargin()
+                |0 errors, 3 warnings""".trimMargin()
             )
     }
 }

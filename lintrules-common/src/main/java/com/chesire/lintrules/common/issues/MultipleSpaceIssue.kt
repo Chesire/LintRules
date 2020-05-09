@@ -19,7 +19,7 @@ interface MultipleSpaceIssue : LintIssue {
     override val priority: Int
         get() = 1
     override val severity: Severity
-        get() = Severity.INFORMATIONAL
+        get() = Severity.WARNING
     override val message: String
         get() = "Multiple spaces should not be used."
 }
