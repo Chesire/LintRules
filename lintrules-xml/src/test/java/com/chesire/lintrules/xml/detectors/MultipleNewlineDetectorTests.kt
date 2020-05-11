@@ -61,13 +61,13 @@ class MultipleNewlineDetectorTests {
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true"
         android:gravity="center_horizontal"
         android:orientation="vertical">
+
 
         <ImageView
             android:id="@+id/headerImage"
