@@ -87,7 +87,7 @@ class MultipleNewlineDetectorTests {
             .run()
             .expect(
                 """
-                |res/layout/layout_file.xml:7: Warning: Only a single empty line should be used. [MultipleNewline]
+                |res/layout/layout_file.xml:14: Warning: Only a single empty line should be used. [MultipleNewline]
                 |
                 |^
                 |res/layout/layout_file.xml:24: Warning: Only a single empty line should be used. [MultipleNewline]
