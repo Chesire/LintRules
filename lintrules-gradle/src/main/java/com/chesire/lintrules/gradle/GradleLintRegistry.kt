@@ -5,6 +5,7 @@ import com.android.tools.lint.detector.api.CURRENT_API
 import com.android.tools.lint.detector.api.Issue
 import com.chesire.lintrules.gradle.issues.DuplicateDependency
 import com.chesire.lintrules.gradle.issues.LexicographicDependencies
+import com.chesire.lintrules.gradle.issues.MultipleNewline
 import com.chesire.lintrules.gradle.issues.MultipleSpace
 
 /**
@@ -15,6 +16,7 @@ class GradleLintRegistry : IssueRegistry() {
         get() = listOf(
             DuplicateDependency.issue,
             LexicographicDependencies.issue,
+            MultipleNewline.issue,
             MultipleSpace.issue
         )
 
