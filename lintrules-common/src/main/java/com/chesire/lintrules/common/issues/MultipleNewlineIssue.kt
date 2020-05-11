@@ -11,9 +11,9 @@ interface MultipleNewlineIssue : LintIssue {
     override val id: String
         get() = "MultipleNewline"
     override val briefDescription: String
-        get() = "Detected the use of more than one newline character"
+        get() = "Detected the use of more than one empty line"
     override val explanation: String
-        get() = "Stylistic choice to remove duplicated newlines"
+        get() = "Stylistic choice to remove duplicated empty lines"
     override val category: Category
         get() = Category.CORRECTNESS
     override val priority: Int
