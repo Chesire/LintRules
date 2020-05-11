@@ -15,7 +15,7 @@ import org.w3c.dom.Document
  * which this will call internally.
  */
 abstract class BaseMultipleNewlineDetector : Detector(), GradleScanner, XmlScanner {
-    private val newlineRegex = Regex("(\\r?\\n|\\r)\\s*(\\r?\\n|\\r)\\s*(\\r?\\n|\\r)\\s*")
+    private val newlineRegex = Regex("((\\r?\\n|\\r)\\s*){3}")
     override val customVisitor = true
 
     override fun visitBuildScript(context: Context) {
