@@ -26,9 +26,9 @@ implementation 'com.github.Chesire:LintRules:{version}'
 
 ### lint-gradle
 - **[DuplicateDependency]** - Highlights when the same dependency has been used multiple times within the same Gradle file. 
+- **[LexicographicDependencies]** - Highlights when dependencies within a Gradle file are not ordered lexicographically. 
 - **[MultipleNewline]** - Highlights when multiple blank lines  are detected in a row. 
 - **[MultipleSpaces]** - Highlights when multiple spaces are detected in a row. 
-- **[LexicographicDependencies]** - Highlights when dependencies within a Gradle file are not ordered lexicographically.
 
 ### lint-xml
 - **[ColorCasing]** - Highlights when a color has been defined, but is not all uppercased. 
