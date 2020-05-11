@@ -87,16 +87,13 @@ class MultipleNewlineDetectorTests {
             .run()
             .expect(
                 """
-                |res/layout/layout_file.xml:1: Warning: Multiple spaces should not be used. [MultipleSpace]
-                |<?xml version="1.0"  encoding="utf-8"?>
-                |                   ~~
-                |res/layout/layout_file.xml:2: Warning: Multiple spaces should not be used. [MultipleSpace]
-                |<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
-                |           ~~
-                |res/layout/layout_file.xml:21: Warning: Multiple spaces should not be used. [MultipleSpace]
-                |            app:layout_constraintTop_toTopOf="parent"  />
-                |                                                     ~~
-                |0 errors, 3 warnings""".trimMargin()
+                |res/layout/layout_file.xml:7: Warning: Only a single empty line should be used. [MultipleNewline]
+                |
+                |^
+                |res/layout/layout_file.xml:24: Warning: Only a single empty line should be used. [MultipleNewline]
+                |    
+                |^
+                |0 errors, 2 warnings""".trimMargin()
             )
     }
 }
