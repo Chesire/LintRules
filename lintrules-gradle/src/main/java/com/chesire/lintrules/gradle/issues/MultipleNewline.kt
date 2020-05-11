@@ -3,6 +3,7 @@ package com.chesire.lintrules.gradle.issues
 import com.android.tools.lint.detector.api.Implementation
 import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.Scope
+import com.chesire.lintrules.common.issues.MultipleNewlineIssue
 import com.chesire.lintrules.gradle.detectors.MultipleNewlineDetector
 
 /**

@@ -2,6 +2,7 @@ package com.chesire.lintrules.gradle.detectors
 
 import com.android.tools.lint.detector.api.Context
 import com.android.tools.lint.detector.api.Location
+import com.chesire.lintrules.common.detectors.BaseMultipleNewlineDetector
 import com.chesire.lintrules.gradle.issues.MultipleNewline
 
 /**
