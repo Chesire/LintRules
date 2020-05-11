@@ -15,6 +15,9 @@ import org.w3c.dom.Document
  * which this will call internally.
  */
 abstract class BaseMultipleNewlineDetector : Detector(), GradleScanner, XmlScanner {
+    private val newlineRegex = Regex("(\\r?\\n|\\r)\\s*(\\r?\\n|\\r)\\s*(\\r?\\n|\\r)\\s*")
+    override val customVisitor = true
+
     override fun visitBuildScript(context: Context) {
         val contents = context.getContents() ?: return
         findIssues(contents) { context.report(contents, it) }
@@ -26,7 +29,9 @@ abstract class BaseMultipleNewlineDetector : Detector(), GradleScanner, XmlScann
     }
 
     private fun findIssues(contents: CharSequence, onIssueFound: (IntRange) -> Unit) {
-        //
+        newlineRegex.findAll(contents).forEach {
+            onIssueFound(IntRange(it.range.first.inc(), it.range.last.inc()))
+        }
     }
 
     /**
