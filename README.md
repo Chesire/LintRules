@@ -5,7 +5,6 @@
 [![Download](https://api.bintray.com/packages/chesire/LintRules/lint-gradle/images/download.svg) ](https://bintray.com/chesire/LintRules/lint-gradle/_latestVersion)
 [![](https://jitpack.io/v/Chesire/LintRules.svg)](https://jitpack.io/#Chesire/LintRules)
 [![Build Status](https://app.bitrise.io/app/21368f5327d4f32e/status.svg?token=TMTWcLyeJ2NzlcqwsFLKeQ&branch=master)](https://app.bitrise.io/app/21368f5327d4f32e)
-[![codebeat badge](https://codebeat.co/badges/2e0005b8-687d-4c92-bab1-e4c0d67c11ad)](https://codebeat.co/projects/github-com-chesire-lintrules-master)
 
 ## Installation
 
