@@ -48,21 +48,24 @@ class LexicographicDependenciesDetector : Detector(), GradleScanner {
     ) {
         dependencyItems
             .lastOrNull()
-            ?.onlyIf({
-                if (first != dependency.type) {
-                    return@onlyIf false
+            ?.onlyIf(
+                {
+                    if (first != dependency.type) {
+                        return@onlyIf false
+                    }
+
+                    val firstString = dependency.name.replace(':', '.')
+                    val seconString = second.replace(':', '.')
+
+                    seconString.compareTo(firstString, false) > 0
+                },
+                {
+                    context.report(
+                        LexicographicDependencies.issue,
+                        context.getLocation(valueCookie),
+                        LexicographicDependencies.message
+                    )
                 }
-
-                val firstString = dependency.name.replace(':', '.')
-                val seconString = second.replace(':', '.')
-
-                seconString.compareTo(firstString, false) > 0
-            }, {
-                context.report(
-                    LexicographicDependencies.issue,
-                    context.getLocation(valueCookie),
-                    LexicographicDependencies.message
-                )
-            })
+            )
     }
 }

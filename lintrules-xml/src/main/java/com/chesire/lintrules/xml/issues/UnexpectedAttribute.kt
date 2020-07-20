@@ -32,7 +32,5 @@ object UnexpectedAttribute {
     /**
      * Message to display when reporting on this issue.
      */
-    val message = """
-        Attribute was not expected on this element.
-    """.trimIndent()
+    const val message = "Attribute was not expected on this element."
 }

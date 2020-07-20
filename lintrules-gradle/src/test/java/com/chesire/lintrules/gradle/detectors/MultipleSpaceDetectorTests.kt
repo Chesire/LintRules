@@ -34,7 +34,7 @@ jar {
         attributes('Lint-Registry-v2': 'com.chesire.lintrules.gradle.GradleLintRegistry')
     }
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(MultipleSpace.issue)
@@ -70,7 +70,7 @@ jar {
         attributes('Lint-Registry-v2': 'com.chesire.lintrules.gradle.GradleLintRegistry')
     }
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(MultipleSpace.issue)

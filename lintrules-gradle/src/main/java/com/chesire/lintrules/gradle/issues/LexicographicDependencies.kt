@@ -27,7 +27,5 @@ object LexicographicDependencies {
     /**
      * Message to display when reporting on this issue.
      */
-    val message = """
-        Dependencies should be listed in lexicographic order.
-    """.trimIndent()
+    const val message = "Dependencies should be listed in lexicographic order."
 }

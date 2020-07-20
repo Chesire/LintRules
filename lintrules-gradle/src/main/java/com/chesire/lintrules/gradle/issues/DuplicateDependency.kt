@@ -30,7 +30,5 @@ object DuplicateDependency {
     /**
      * Message to display when reporting on this issue.
      */
-    val message = """
-        Dependencies should only be added to a given module once.
-    """.trimIndent()
+    const val message = "Dependencies should only be added to a given module once."
 }
