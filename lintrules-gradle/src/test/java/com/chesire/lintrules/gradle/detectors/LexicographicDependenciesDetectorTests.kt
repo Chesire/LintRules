@@ -50,7 +50,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(LexicographicDependencies.issue)
@@ -80,7 +80,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(LexicographicDependencies.issue)
@@ -111,7 +111,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(LexicographicDependencies.issue)
@@ -141,7 +141,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(LexicographicDependencies.issue)
@@ -178,7 +178,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(LexicographicDependencies.issue)

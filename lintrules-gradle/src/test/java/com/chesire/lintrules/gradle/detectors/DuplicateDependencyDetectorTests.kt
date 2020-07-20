@@ -51,7 +51,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -81,7 +81,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -112,7 +112,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -143,7 +143,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -180,7 +180,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -217,7 +217,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -259,7 +259,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)
@@ -296,7 +296,7 @@ dependencies {
     
     lintChecks project(":lintrules")
 }
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(DuplicateDependency.issue)

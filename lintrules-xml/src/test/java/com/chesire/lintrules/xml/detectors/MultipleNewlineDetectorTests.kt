@@ -38,7 +38,7 @@ class MultipleNewlineDetectorTests {
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 </ScrollView>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(MultipleNewline.issue)
@@ -80,7 +80,7 @@ class MultipleNewlineDetectorTests {
     
     
 </ScrollView>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(MultipleNewline.issue)

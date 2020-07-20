@@ -37,7 +37,7 @@ class MultipleSpaceDetectorTests {
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 </ScrollView>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(MultipleSpace.issue)
@@ -76,7 +76,7 @@ class MultipleSpaceDetectorTests {
             app:layout_constraintTop_toTopOf="parent"  />
     </LinearLayout>
 </ScrollView>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(MultipleSpace.issue)

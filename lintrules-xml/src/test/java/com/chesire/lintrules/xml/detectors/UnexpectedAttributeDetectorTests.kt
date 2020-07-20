@@ -20,7 +20,7 @@ class UnexpectedAttributeDetectorTests {
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(UnexpectedAttribute.issue)
@@ -43,7 +43,7 @@ class UnexpectedAttributeDetectorTests {
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"/>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(UnexpectedAttribute.issue)
@@ -76,7 +76,7 @@ class UnexpectedAttributeDetectorTests {
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="horizontal"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(UnexpectedAttribute.issue)
@@ -109,7 +109,7 @@ class UnexpectedAttributeDetectorTests {
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"/>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented(),
                 xml(
                     "res/layout/layout2.xml",
@@ -124,7 +124,7 @@ class UnexpectedAttributeDetectorTests {
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="horizontal"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
-                """.trimIndent()
+                    """.trimIndent()
                 ).indented()
             )
             .issues(UnexpectedAttribute.issue)

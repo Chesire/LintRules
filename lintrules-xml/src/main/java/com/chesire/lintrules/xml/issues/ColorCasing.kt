@@ -27,7 +27,5 @@ object ColorCasing {
     /**
      * Message to display when reporting on this issue.
      */
-    val message = """
-        Color definitions should be all uppercase.
-    """.trimIndent()
+    const val message = "Color definitions should be all uppercase."
 }
