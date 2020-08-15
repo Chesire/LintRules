@@ -16,8 +16,8 @@ jobs:
       uses: actions/setup-java@v1.4.1
       with:
         java-version: 1.8
-    - name: run testDebugUnitTest
-      run: ./gradlew testDebugUnitTest
+    - name: run test
+      run: ./gradlew test
     - name: upload gradle test results
       uses: actions/upload-artifact@v2
       with:
