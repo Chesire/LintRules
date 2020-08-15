@@ -60,6 +60,7 @@ jobs:
 
   danger:
     needs: [test, analyze]
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -117,8 +118,8 @@ jobs:
         java-version: 1.8
     - name: Fetch tags
       run: git fetch origin 'refs/tags/*:refs/tags/*'
-    - name: run assembleDebug
-      run: ./gradlew assembleDebug
+    - name: run assemble
+      run: ./gradlew assemble
     - name: Set env
       run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
     - name: Deploy
