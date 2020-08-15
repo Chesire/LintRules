@@ -18,9 +18,6 @@ jobs:
         java-version: 1.8
     - name: run testDebugUnitTest
       run: ./gradlew testDebugUnitTest
-    - name: run jacocoTestReport
-      run: ./gradlew jacocoTestReport
-    - uses: codecov/codecov-action@v1.0.12
     - name: upload gradle test results
       uses: actions/upload-artifact@v2
       with:
@@ -52,8 +49,6 @@ jobs:
         java-version: 1.8
     - name: run ktlintCheck
       run: ./gradlew ktlintCheck
-    - name: run lintDebug
-      run: ./gradlew lintDebug
     - name: run detekt
       run: ./gradlew detekt
     - name: upload detekt results
@@ -89,11 +84,16 @@ jobs:
       with:
         name: detekt
         path: build/reports/
-    - name: download test results
+    - name: download gradle test results
       uses: actions/download-artifact@v2
       with:
-        name: test_xml
-        path: lifecyklelog/build/test-results/
+        name: gradle_test_xml
+        path: lintrules-gradle/build/test-results/
+    - name: download xml test results
+      uses: actions/download-artifact@v2
+      with:
+        name: xml_test_xml
+        path: lintrules-xml/build/test-results/
     - uses: MeilCli/danger-action@v5.0.0
       if: github.event_name == 'pull_request'
       with:
