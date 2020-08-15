@@ -3,9 +3,10 @@ name: Android CI
 on:
   push:
     branches: [ master ]
-    tags: [ '*' ]
   pull_request:
     branches: [ master ]
+  release:
+    types: [ published ]
 
 jobs:
   test:
@@ -105,7 +106,7 @@ jobs:
         DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_API_TOKEN }}
 
   deploy:
-    if: startsWith(github.ref, 'refs/tags/*')
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
