@@ -4,7 +4,7 @@
 
 [![Download](https://api.bintray.com/packages/chesire/LintRules/lint-gradle/images/download.svg) ](https://bintray.com/chesire/LintRules/lint-gradle/_latestVersion)
 [![](https://jitpack.io/v/Chesire/LintRules.svg)](https://jitpack.io/#Chesire/LintRules)
-[![Build Status](https://app.bitrise.io/app/21368f5327d4f32e/status.svg?token=TMTWcLyeJ2NzlcqwsFLKeQ&branch=master)](https://app.bitrise.io/app/21368f5327d4f32e)
+![Android CI](https://github.com/Chesire/LintRules/workflows/Android%20CI/badge.svg)
 
 ## Installation
 
