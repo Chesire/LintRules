@@ -106,6 +106,7 @@ jobs:
         DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_API_TOKEN }}
 
   deploy:
+    needs: [test, analyze]
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
