@@ -15,7 +15,7 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
         private const val PARENT_TAG = "dependencies"
     }
 
-    private val dependencyItems = mutableListOf<Pair<String, String>>()
+    private val dependencyItems = mutableListOf<Dependency>()
 
     override fun checkDslPropertyAssignment(
         context: GradleContext,
@@ -32,7 +32,7 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
         }
         DependencyParser.parseDependency(property, value)?.let { dependency ->
             reportIfDuplicate(context, dependency, valueCookie)
-            dependencyItems.add(dependency.type to dependency.name)
+            dependencyItems.add(dependency)
         }
     }
 
@@ -41,7 +41,7 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
         dependency: Dependency,
         valueCookie: Any
     ) {
-        if (dependencyItems.any { it.first == dependency.type && it.second == dependency.name }) {
+        if (isDuplicate(dependency)) {
             context.report(
                 DuplicateDependency.issue,
                 context.getLocation(valueCookie),
@@ -49,4 +49,6 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
             )
         }
     }
+
+    private fun isDuplicate(dependency: Dependency) = dependencyItems.any { it.sameAs(dependency) }
 }
