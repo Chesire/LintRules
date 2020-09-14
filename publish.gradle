@@ -73,18 +73,12 @@ install {
 bintray {
     if (project.hasProperty('bintrayUser')) {
         user = findProperty('bintrayUser')
-    } else {
-        println("[WARNING] No bintrayUser provided")
     }
     if (project.hasProperty('bintrayKey')) {
-        key = bintrayKey
-    } else {
-        println("[WARNING] No bintrayKey provided")
+        key = findProperty('bintrayKey')
     }
     if (project.hasProperty('publishVersion')) {
         version = findProperty('publishVersion')
-    } else {
-        println("[WARNING] No publishVersion provided")
     }
 
     configurations = ['archives']
