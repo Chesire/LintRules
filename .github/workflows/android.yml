@@ -119,8 +119,8 @@ jobs:
     - name: Fetch tags
       run: git fetch origin 'refs/tags/*:refs/tags/*'
     - name: run assemble
-      run: ./gradlew assemble
+      run: ./gradlew assemble install
     - name: Set env
       run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
     - name: Deploy
-      run: ./gradlew bintrayUpload -PbintrayUser=${{ secrets.BINTRAY_USER_ID }} -PbintrayKey=${{ secrets.BINTRAY_API_KEY }} -PpublishVersion=${{ env.RELEASE_VERSION }} -PdryRun=false
+      run: ./gradlew bintrayUpload -PbintrayUser=${{ secrets.BINTRAY_USER_ID }} -PbintrayKey=${{ secrets.BINTRAY_API_KEY }} -PpublishVersion=${{ env.RELEASE_VERSION }}
