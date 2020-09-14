@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 29
@@ -12,7 +11,7 @@ dependencies {
 
 ext {
     bintrayRepo = 'LintRules'
-    bintrayName = 'com.chesire.lintrules'
+    bintrayName = 'lint-gradle'
 
     libraryName = 'lintrules-gradle'
 
@@ -25,9 +24,12 @@ ext {
     gitUrl = 'https://github.com/Chesire/LintRules.git'
     developerId = 'chesire'
     developerName = 'chesire'
+    developerEmail = 'troy.rijkaard@chesire.dev'
+    ghRepo = 'chesire/LintRules'
+    ghReleaseNotesFile = 'README.md'
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
 }
 
-apply from: '../bintray.gradle'
+apply from: '../publish.gradle'

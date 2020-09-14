@@ -1,4 +1,7 @@
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = publishedGroupId
 
 if (project.hasProperty("android")) {
     // Android libraries
@@ -29,6 +32,44 @@ artifacts {
     archives sourcesJar
 }
 
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                groupId publishedGroupId
+                artifactId artifact
+
+                // Add your description here
+                name libraryName
+                description libraryDescription
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name licenseName
+                        url licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
 bintray {
     if (project.hasProperty('bintrayUser')) {
         user = findProperty('bintrayUser')
@@ -54,8 +95,9 @@ bintray {
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = allLicenses
+        githubRepo = ghRepo
+        githubReleaseNotesFile = ghReleaseNotesFile
         publish = true
-        dryRun = true
         publicDownloadNumbers = true
         version {
             desc = libraryDescription
