@@ -1,8 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply from: 'bintray.gradle'
-
-group='com.github.chesire'
 
 android {
     compileSdkVersion 29
@@ -12,3 +8,28 @@ android {
 dependencies {
     lintPublish project(':lintrules-gradle')
 }
+
+ext {
+    bintrayRepo = 'LintRules'
+    bintrayName = 'lint-gradle'
+
+    libraryName = 'lintrules-gradle'
+
+    publishedGroupId = 'com.chesire.lintrules'
+    artifact = 'lint-gradle'
+    libraryVersion = '0.0.0'
+
+    libraryDescription = 'Provides extra lint rules based around Gradle to the project.'
+    siteUrl = 'https://chesire.github.io/LintRules/'
+    gitUrl = 'https://github.com/Chesire/LintRules.git'
+    developerId = 'chesire'
+    developerName = 'chesire'
+    developerEmail = 'troy.rijkaard@chesire.dev'
+    ghRepo = 'chesire/LintRules'
+    ghReleaseNotesFile = 'README.md'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: '../publish.gradle'
