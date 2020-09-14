@@ -101,3 +101,20 @@ bintray {
         }
     }
 }
+
+task deploy(group: "publishing") {
+    doLast {
+        if (!project.hasProperty('bintrayUser')) {
+            throw new MissingPropertyException("bintrayUser must be passed in")
+        }
+        if (!project.hasProperty('bintrayKey')) {
+            throw new MissingPropertyException("bintrayKey must be passed in")
+        }
+        if (!project.hasProperty('publishVersion')) {
+            throw new MissingPropertyException("publishVersion must be passed in")
+        }
+    }
+}
+
+deploy.finalizedBy install
+install.finalizedBy bintrayUpload
