@@ -3,6 +3,7 @@ package com.chesire.lintrules.gradle.detectors
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.GradleContext
 import com.android.tools.lint.detector.api.GradleScanner
+import com.android.tools.lint.detector.api.Project
 import com.chesire.lintrules.gradle.Dependency
 import com.chesire.lintrules.gradle.DependencyParser
 import com.chesire.lintrules.gradle.issues.DuplicateDependency
@@ -16,6 +17,7 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
     }
 
     private val dependencyItems = mutableListOf<Dependency>()
+    private var currentProject: Project? = null
 
     override fun checkDslPropertyAssignment(
         context: GradleContext,
@@ -29,6 +31,10 @@ class DuplicateDependencyDetector : Detector(), GradleScanner {
     ) {
         if (parent != PARENT_TAG) {
             return
+        }
+        if (currentProject == null || context.project != currentProject) {
+            dependencyItems.clear()
+            currentProject = context.project
         }
         DependencyParser.parseDependency(property, value)?.let { dependency ->
             reportIfDuplicate(context, dependency, valueCookie)
