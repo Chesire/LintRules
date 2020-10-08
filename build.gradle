@@ -53,5 +53,5 @@ detekt {
 }
 
 ext {
-    lintVersion = "27.0.1"
+    lintVersion = "27.0.2"
 }
