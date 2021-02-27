@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 package com.chesire.lintrules.gradle.detectors
 
 import com.android.tools.lint.checks.infrastructure.TestFiles
@@ -79,6 +81,27 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     
     lintChecks project(":lintrules")
+}
+                    """.trimIndent()
+                ).indented()
+            )
+            .issues(LexicographicDependencies.issue)
+            .run()
+            .expectClean()
+    }
+
+    @Test
+    fun `lexicographicOrder should be no issue with nested project dependencies`() {
+        TestLintTask
+            .lint()
+            .allowMissingSdk()
+            .files(
+                TestFiles.gradle(
+                    """
+dependencies {
+    implementation project(":libraries:kitsu:trending")
+    implementation project(":libraries:kitsu:user")
+    implementation project(":libraries:library")
 }
                     """.trimIndent()
                 ).indented()
