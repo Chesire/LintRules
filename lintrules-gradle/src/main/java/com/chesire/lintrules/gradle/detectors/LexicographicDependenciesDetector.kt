@@ -38,8 +38,7 @@ class LexicographicDependenciesDetector : Detector(), GradleScanner {
     }
 
     // Certain items should not be included when checking
-    private fun isValidItem(value: String) =
-        !(value.contains("org.jetbrains.kotlin:kotlin-stdlib") || value.contains("fileTree"))
+    private fun isValidItem(value: String) = !value.contains("fileTree")
 
     private fun reportIfNotLexicographicOrder(
         context: GradleContext,
