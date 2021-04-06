@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: 1.8
+        java-version: 8
     - name: run test
       run: ./gradlew test
     - name: upload gradle test results
@@ -49,7 +49,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: 1.8
+        java-version: 8
     - name: run ktlintCheck
       run: ./gradlew ktlintCheck
     - name: run detekt
@@ -72,7 +72,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: 1.8
+        java-version: 8
     - uses: actions/setup-ruby@v1.1.3
       with:
         ruby-version: '2.6'
@@ -119,7 +119,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: 1.8
+        java-version: 8
     - name: Fetch tags
       run: git fetch origin 'refs/tags/*:refs/tags/*'
     - name: run assemble
