@@ -7,7 +7,6 @@ import com.chesire.lintrules.gradle.Dependency
 import com.chesire.lintrules.gradle.DependencyParser
 import com.chesire.lintrules.gradle.Domain
 import com.chesire.lintrules.gradle.issues.LexicographicDependencies
-import org.jetbrains.kotlin.backend.common.onlyIf
 
 private const val PARENT_TAG = "dependencies"
 
@@ -47,25 +46,23 @@ class LexicographicDependenciesDetector : Detector(), GradleScanner {
     ) {
         dependencyItems
             .lastOrNull()
-            ?.onlyIf(
-                {
-                    if (type != dependency.type) {
-                        return@onlyIf false
-                    }
-
-                    when (dependency.domain) {
-                        Domain.Project.value -> isInvalidOrder(dependency.value, this.value)
-                        else -> isInvalidOrder(dependency.name, this.name)
-                    }
-                },
-                {
-                    context.report(
-                        LexicographicDependencies.issue,
-                        context.getLocation(valueCookie),
-                        LexicographicDependencies.message
+            ?.takeIf {
+                when {
+                    it.type != dependency.type -> return
+                    dependency.domain == Domain.Project.value -> isInvalidOrder(
+                        dependency.value,
+                        it.value
                     )
+                    else -> isInvalidOrder(dependency.name, it.name)
                 }
-            )
+            }
+            ?.let {
+                context.report(
+                    LexicographicDependencies.issue,
+                    context.getLocation(valueCookie),
+                    LexicographicDependencies.message
+                )
+            }
     }
 
     private fun isInvalidOrder(a: String, b: String): Boolean {
