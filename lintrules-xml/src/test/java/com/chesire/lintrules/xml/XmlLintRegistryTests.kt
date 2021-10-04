@@ -1,5 +1,6 @@
 package com.chesire.lintrules.xml
 
+import com.android.tools.lint.client.api.LintClient
 import com.android.tools.lint.detector.api.CURRENT_API
 import com.chesire.lintrules.xml.issues.ColorCasing
 import com.chesire.lintrules.xml.issues.MultipleNewline
@@ -7,9 +8,16 @@ import com.chesire.lintrules.xml.issues.MultipleSpace
 import com.chesire.lintrules.xml.issues.UnexpectedAttribute
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 
 class XmlLintRegistryTests {
+
+    @Before
+    fun setup() {
+        LintClient.clientName = "XmlLintRegistryTests"
+    }
+
     @Test
     fun `issues returns expected list`() {
         val registry = XmlLintRegistry()

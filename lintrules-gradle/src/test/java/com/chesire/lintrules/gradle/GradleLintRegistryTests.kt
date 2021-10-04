@@ -1,5 +1,6 @@
 package com.chesire.lintrules.gradle
 
+import com.android.tools.lint.client.api.LintClient
 import com.android.tools.lint.detector.api.CURRENT_API
 import com.chesire.lintrules.gradle.issues.DuplicateDependency
 import com.chesire.lintrules.gradle.issues.LexicographicDependencies
@@ -7,9 +8,16 @@ import com.chesire.lintrules.gradle.issues.MultipleNewline
 import com.chesire.lintrules.gradle.issues.MultipleSpace
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 
 class GradleLintRegistryTests {
+
+    @Before
+    fun setup() {
+        LintClient.clientName = "GradleLintRegistryTests"
+    }
+
     @Test
     fun `issues returns expected list`() {
         val registry = GradleLintRegistry()

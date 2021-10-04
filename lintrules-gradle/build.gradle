@@ -1,4 +1,3 @@
-apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
 sourceSets {
@@ -18,6 +17,7 @@ dependencies {
 
     testImplementation "com.android.tools.lint:lint:$lintVersion"
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
+    testImplementation "junit:junit:$junitVersion"
 }
 
 jar {

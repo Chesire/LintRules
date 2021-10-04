@@ -1,20 +1,17 @@
-@file:Suppress("UnstableApiUsage")
-
 package com.chesire.lintrules.gradle.detectors
 
-import com.android.tools.lint.checks.infrastructure.TestFiles
-import com.android.tools.lint.checks.infrastructure.TestLintTask
+import com.android.tools.lint.checks.infrastructure.TestFiles.gradle
+import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import com.chesire.lintrules.gradle.issues.LexicographicDependencies
 import org.junit.Test
 
 class LexicographicDependenciesDetectorTests {
     @Test
     fun `lexicographicOrder should be no issue with valid Gradle file`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -62,11 +59,10 @@ dependencies {
 
     @Test
     fun `lexicographicOrder should be no issue with short valid Gradle file`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -92,11 +88,10 @@ dependencies {
 
     @Test
     fun `lexicographicOrder should be no issue with nested project dependencies`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation project(":libraries:kitsu:trending")
@@ -113,11 +108,10 @@ dependencies {
 
     @Test
     fun `lexicographicOrder should be no issue with wrong order between different implementation type`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -144,11 +138,10 @@ dependencies {
 
     @Test
     fun `lexicographicOrder should be an issue with invalid lexicographic order`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -180,11 +173,10 @@ dependencies {
 
     @Test
     fun `lexicographicOrder should be an issue with invalid lexicographic order same owner`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

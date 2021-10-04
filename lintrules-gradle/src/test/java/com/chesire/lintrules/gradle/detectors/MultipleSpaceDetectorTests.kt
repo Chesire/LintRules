@@ -1,18 +1,17 @@
 package com.chesire.lintrules.gradle.detectors
 
-import com.android.tools.lint.checks.infrastructure.TestFiles
-import com.android.tools.lint.checks.infrastructure.TestLintTask
+import com.android.tools.lint.checks.infrastructure.TestFiles.gradle
+import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import com.chesire.lintrules.gradle.issues.MultipleSpace
 import org.junit.Test
 
 class MultipleSpaceDetectorTests {
     @Test
     fun `multipleSpace should be no issue with valid Gradle file`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
@@ -44,11 +43,10 @@ jar {
 
     @Test
     fun `multipleSpace should flag issues in invalid Gradle file`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 apply  plugin: 'java-library'
 apply plugin: 'kotlin'
