@@ -1,5 +1,5 @@
 include ':lintrules-common',
-        ':lintrules-gradle',
-        ':lintrules-xml',
-        ':lintrules-gradle-publish',
-        ':lintrules-xml-publish' //, ':test-app'
+    ':lintrules-gradle',
+    ':lintrules-xml',
+    ':lintrules-gradle-publish',
+    ':lintrules-xml-publish' //, ':test-app'

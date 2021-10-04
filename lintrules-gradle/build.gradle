@@ -5,8 +5,8 @@ sourceSets {
     main {
         java {
             srcDirs = [
-                    'src/main/java',
-                    '../lintrules-common/src/main/java'
+                'src/main/java',
+                '../lintrules-common/src/main/java'
             ]
         }
     }

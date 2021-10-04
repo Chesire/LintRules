@@ -36,9 +36,9 @@ task clean(type: Delete) {
 detekt {
     config = files("detekt.yml")
     input = files(
-            "lintrules-common/src/main/java",
-            "lintrules-gradle/src/main/java",
-            "lintrules-xml/src/main/java"
+        "lintrules-common/src/main/java",
+        "lintrules-gradle/src/main/java",
+        "lintrules-xml/src/main/java"
     )
     reports {
         xml {
