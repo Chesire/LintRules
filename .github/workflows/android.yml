@@ -21,22 +21,22 @@ jobs:
     - name: run test
       run: ./gradlew test
     - name: upload gradle test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: gradle_tests
         path: lintrules-gradle/build/reports/
     - name: upload xml test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: xml_tests
         path: lintrules-xml/build/reports/
     - name: upload gradle test xml
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: gradle_test_xml
         path: lintrules-gradle/build/test-results/
     - name: upload test xml
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: xml_test_xml
         path: lintrules-xml/build/test-results/
@@ -55,7 +55,7 @@ jobs:
     - name: run detekt
       run: ./gradlew detekt
     - name: upload detekt results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: detekt
         path: build/reports/
