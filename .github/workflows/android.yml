@@ -85,17 +85,17 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
     - name: download detekt results
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: detekt
         path: build/reports/
     - name: download gradle test results
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: gradle_test_xml
         path: lintrules-gradle/build/test-results/
     - name: download xml test results
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: xml_test_xml
         path: lintrules-xml/build/test-results/
