@@ -1,18 +1,17 @@
 package com.chesire.lintrules.gradle.detectors
 
-import com.android.tools.lint.checks.infrastructure.TestFiles
-import com.android.tools.lint.checks.infrastructure.TestLintTask
+import com.android.tools.lint.checks.infrastructure.TestFiles.gradle
+import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import com.chesire.lintrules.gradle.issues.DuplicateDependency
 import org.junit.Test
 
 class DuplicateDependencyDetectorTests {
     @Test
     fun `duplicateDependency should be no issue with valid Gradle file`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -61,11 +60,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should be no issue with short valid Gradle file`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -91,11 +89,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should be no issue with same entry with different implementation type`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -122,11 +119,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should be an issue when duplicate entry`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -159,11 +155,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should be an issue when duplicate entry with different version`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -196,11 +191,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should be an issue when duplicate entry at different location`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -233,11 +227,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should not be an issue with multiple different items`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -269,11 +262,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should be an issue with duplicate project`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -312,11 +304,10 @@ dependencies {
 
     @Test
     fun `duplicateDependency should not be an issue with different nested projects`() {
-        TestLintTask
-            .lint()
+        lint()
             .allowMissingSdk()
             .files(
-                TestFiles.gradle(
+                gradle(
                     """
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

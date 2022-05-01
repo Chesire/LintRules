@@ -1,6 +1,6 @@
 package com.chesire.lintrules.xml.detectors
 
-import com.android.tools.lint.checks.infrastructure.LintDetectorTest.xml
+import com.android.tools.lint.checks.infrastructure.TestFiles.xml
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import com.chesire.lintrules.xml.issues.ColorCasing
 import org.junit.Test
