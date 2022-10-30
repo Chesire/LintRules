@@ -2,7 +2,6 @@
 
 > Extra lint rules to add to your project.
 
-[![Download](https://api.bintray.com/packages/chesire/LintRules/lint-gradle/images/download.svg) ](https://bintray.com/chesire/LintRules/lint-gradle/_latestVersion)
 [![](https://jitpack.io/v/Chesire/LintRules.svg)](https://jitpack.io/#Chesire/LintRules)
 ![Android CI](https://github.com/Chesire/LintRules/workflows/Android%20CI/badge.svg)
 
@@ -11,14 +10,7 @@
 Add the following line to your modules `build.gradle`
 
 ```gradle
-implementation 'com.chesire.lintrules:lint-gradle:{version}'
-implementation 'com.chesire.lintrules:lint-xml:{version}'
-```
-
-the project is also available via JitPack
-
-```gradle
-implementation 'com.github.Chesire:LintRules:{version}'
+implementation 'com.github.chesire:lintrules:{version}'
 ```
 
 ## Rules Added
